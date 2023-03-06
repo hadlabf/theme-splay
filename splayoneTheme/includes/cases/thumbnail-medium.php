@@ -1,0 +1,1 @@
+<p>I'm a MEDIUM thumbnail</p>
