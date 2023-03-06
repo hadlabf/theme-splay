@@ -27,14 +27,24 @@
                         $description = get_sub_field('description');
                         // Do something...
                         echo $size_of_thumbnail;
+                        $case_thumbnail_data = array( 
+                            'class' => 'featured-home',
+                            'data'  => array(
+                              'customer' => $customer,
+                              'case_name' => $case_name,
+                              'size_of_thumbnail' => $size_of_thumbnail,
+                              'image' => $image,
+                              'description' => $description,
+                             )
+                        );
                         if( $size_of_thumbnail === 'sm'){
-                            get_template_part('includes/cases/thumbnail', 'small');
+                            get_template_part('includes/cases/thumbnail', 'small', $case_thumbnail_data );
                         }
                         if( $size_of_thumbnail === 'md'){
-                            get_template_part('includes/cases/thumbnail', 'medium');
+                            get_template_part('includes/cases/thumbnail', 'medium', $case_thumbnail_data);
                         }
                         if( $size_of_thumbnail === 'lg'){
-                            get_template_part('includes/cases/thumbnail', 'large');
+                            get_template_part('includes/cases/thumbnail', 'large', $case_thumbnail_data);
                         }
                     // End loop.
                     endwhile;
