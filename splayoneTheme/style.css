@@ -63,7 +63,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 .people_cards {
   padding: var(--s6) 0;
-
+  
 }
 .people_card {
   position: relative;
@@ -97,7 +97,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 .people_card .back_page {
   opacity: 0;
-
+  
 }
 .people_card:hover .front_page, 
 .people_card:hover img {
@@ -106,4 +106,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 .people_card:hover .back_page {
   opacity: 1;
+}
+
+/* =======================================*/
+/* ============ PAGE: CONTACT ============*/
+.contact_page  {
+  background-color: var(--bg-blue);
+}
+.contact_page * {
+  color: var(--color-secondary);
+}
+.contact_person_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+}
+.contact_person {
+  display: flex;
+  flex-direction: column;
+}
+.contact_person p{
+  margin-bottom: 0;
 }
