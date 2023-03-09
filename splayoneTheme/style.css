@@ -54,3 +54,56 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .thumbnail_container > .w-50:nth-child(even) {
   margin-top: var(--lg);
 }
+
+/* ========================================*/
+/* =========== PAGE: OUR PEOPLE ===========*/
+
+.people_title {
+  font-size: var(--f-h1);
+}
+.people_cards {
+  padding: var(--s6) 0;
+
+}
+.people_card {
+  position: relative;
+  padding: 0;
+  background-color: var(--bg-blue);
+}
+.people_card img {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+.people_card p {
+  font-size: var(--f-xs);
+}
+
+.people_card .front_page, 
+.people_card .back_page {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding: var(--s3);
+  font-size: var(--f-xs);
+  transition: opacity 0.15s ease-in;
+}
+
+.people_card .front_page {
+  opacity: 1;
+}
+.people_card .back_page {
+  opacity: 0;
+
+}
+.people_card:hover .front_page, 
+.people_card:hover img {
+  opacity: 0;
+}
+
+.people_card:hover .back_page {
+  opacity: 1;
+}
