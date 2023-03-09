@@ -1,6 +1,6 @@
 /* 
-Theme Name: Splay One
-Text Domain: Splay One
+Theme Name: Splay One 2
+Text Domain: Splay One 2
 Version: 1.0.0
 Description: Custom theme for Splay One
 Author: Splay One AB
@@ -9,7 +9,48 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-.page-content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+
+/* HOME - Intro */
+#intro_section {
+  gap: var(--s4);
+  padding-block-end: var(--s4)
+}
+.intro_title {
+  font-size: 120px;
+  flex-grow: 1;
+  white-space: nowrap;
+}
+.intro-text {
+  max-width: 360px;
+}
+
+/* HOME - Awards */
+.award_image_carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--s4);
+  margin-top: var(--s6);
+}
+.award_image_carousel img{
+  max-height: 50px;
+  width: auto;
+}
+/* TODO: Images */
+
+/* HOME - Case thumbnails */
+
+.thumbnail_container {
+  gap: var(--s7);
+}
+.thumbnail_item {
+  margin-bottom: var(--s3);
+}
+.thumbnail_container > .w-50 {
+  width: calc(50% - var(--s5)) !important;
+}
+
+.thumbnail_container > .w-50:nth-child(even) {
+  margin-top: var(--lg);
 }

@@ -1,26 +1,16 @@
 <?php
 
-require get_template_directory() . '/inc/function-admin.php';
-
- 
-// Custom image sizes
-function splay_custom_thumbnail_size(){
-    add_image_size( 'case-small', 645, 377 );
-    add_image_size( 'case-medium', 916, 530 );
-    add_image_size( 'case-large', 1340, 643 ); 
-}
-add_action( 'after_setup_theme', 'splay_custom_thumbnail_size' );
-
-// Adds dynamic title tag support connected to wordpress's page or post title
 function splay_theme_support() {
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
-
 add_action('after_setup_theme', 'splay_theme_support');
 
 function splay_register_styles() {
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style('splay-style', get_template_directory_uri() . '/style.css', array('splay-bootstrap'), $version, 'all');
+    wp_enqueue_style('splay-style-common', get_template_directory_uri() . '/common.css', array('splay-bootstrap'), $version, 'all');
+    wp_enqueue_style('splay-style-main', get_template_directory_uri() . '/style.css', array('splay-bootstrap'), $version, 'all');
     wp_enqueue_style('splay-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css', array(), '4.3.1', 'all');
 }
 

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Splay One</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <!-- Bootstrap CSS -->
@@ -15,6 +14,6 @@
     <header>
         <a class="pt-lg-4 mb-0 page-title" href="#">Splay One</a>
     </header>
-    <div class="page-content-wrapper">
+    <div>
         <div class="page">
 
