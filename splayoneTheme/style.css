@@ -1,6 +1,6 @@
 /* 
-Theme Name: Splay One 2
-Text Domain: Splay One 2
+Theme Name: Splay One Theme
+Text Domain: Splay One Theme
 Version: 1.0.0
 Description: Custom theme for Splay One
 Author: Splay One AB
@@ -20,7 +20,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   flex-grow: 1;
   white-space: nowrap;
 }
-.intro-text {
+.intro_text {
   max-width: 360px;
 }
 
@@ -45,7 +45,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   gap: var(--s7);
 }
 .thumbnail_item {
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s2);
+}
+.thumbnail_item p {
+  font-size: var(--f-md);
 }
 .thumbnail_container > .w-50 {
   width: calc(50% - var(--s5)) !important;
@@ -54,7 +57,33 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 .thumbnail_container > .w-50:nth-child(even) {
   margin-top: var(--lg);
 }
-
+.news_scrool_wrapper {
+  height: calc(var(--s3) + 360px);
+  position: relative;
+}
+.news_scrool_feed {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  width: 1530px;
+  /* width: calc((100vw -1340px) / 2 + 1300px); */
+  gap: var(--s3);
+  padding-bottom: var(--s3);
+}
+.news_item {
+  height: 360px;
+  width: 380px;
+  min-width: 380px;
+  border: 1px solid var(--color-primary);
+  padding: var(--s4); 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.home_news_section {
+  margin-bottom: calc(var(--lg) * 2);
+}
 /* ========================================*/
 /* =========== PAGE: OUR PEOPLE ===========*/
 
@@ -63,12 +92,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 .people_cards {
   padding: var(--s6) 0;
-  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .people_card {
   position: relative;
   padding: 0;
-  background-color: var(--bg-blue);
+  background-color: var(--bg-accent1);
 }
 .people_card img {
   width: 100%;
@@ -78,6 +109,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 .people_card p {
   font-size: var(--f-xs);
+  color: var(--color-secondary);
 }
 
 .people_card .front_page, 
@@ -110,21 +142,203 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* =======================================*/
 /* ============ PAGE: CONTACT ============*/
+.contact_page_header {
+  background-color: var(--bg-accent1);
+}
+.contact_page_header .head_nav_items a{
+  color: var(--color-secondary);
+}
 .contact_page  {
-  background-color: var(--bg-blue);
+  background-color: var(--bg-accent1);
+  display: flex;
+  flex-direction: row;
 }
 .contact_page * {
   color: var(--color-secondary);
 }
-.contact_person_list {
+
+.contact_item {
   display: flex;
   flex-direction: column;
-  gap: var(--s5);
+  padding-bottom: var(--s3);
 }
-.contact_person {
-  display: flex;
-  flex-direction: column;
-}
-.contact_person p{
+.contact_item p {
+  font-size: var(--f-md);
   margin-bottom: 0;
+}
+
+button.submit_button {
+  background-color: var(--bg-accent2) !important;
+  border-color: transparent !important;
+  color: var(--color-primary) !important;
+  font-size: var(--f-sm) !important;
+  padding: var(--s1) var(--s5);
+}
+
+
+.contact_form {
+  margin: var(--s5) 0;
+}
+.form_checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: var(--s2);
+  align-items: baseline;
+  font-size: var(--f-md);
+}
+
+.form-group {
+  position:relative;  
+  margin-top: var(--s4);
+}
+
+.form-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-secondary);
+  z-index: 10;
+  font-size: var(--f-md);
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+}
+
+.focused .form-label {
+  transform: translateY(-125%);
+  font-size: .75em;
+  font-size: 14px;
+}
+
+.form-input {
+  position: relative;
+  padding: 12px 0px 5px 0;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 1px 0 0 #e5e5e5;
+  transition: box-shadow 150ms ease-out;
+  background: none;
+}
+
+.form-input:focus {
+  box-shadow: 0 2px 0 0 blue;
+}
+.form-input.filled {
+  box-shadow: 0 2px 0 0 lightgreen;
+}
+
+/* ABOUT PAGE ========== */
+.about_header {
+  position: relative;
+  height: 600px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+.about_header_image {
+  width: 100%;
+  height: auto;
+}
+.about_header_content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.about_header_text {
+  font-size: 130px;
+  color: var(--color-secondary);
+  width: 100%;
+}
+.about_header_text#about_header_1 {
+  text-align: left;
+}
+.about_header_text#about_header_2 {
+  text-align: right;
+}
+
+.work_area_section {
+  background-color: var(--bg-accent1);
+}
+.work_area_section * {
+  color: var(--color-secondary);
+}
+.work_area_header {
+  font-size: 50px;
+}
+.work_area_content {
+  padding: var(--lg) 0;
+}
+.work_area_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.area_item {
+  border: 1px solid var(--color-secondary);
+  border-left: none;
+  border-top: none;
+  padding: var(--s4);
+}
+.area_item_wrapper:nth-child(3n+1) .area_item {
+  border-left: 1px solid var(--color-secondary);
+}
+.area_item_wrapper:nth-child(-n+3) .area_item {
+  border-top: 1px solid var(--color-secondary);
+}
+.area_item #topic {
+  font-size: var(--f-lg);
+}
+
+/* QUOTE */
+.quote_section {
+  padding-top: var(--s5);
+  padding-bottom: var(--s5);
+}
+.quote_section p, 
+.quote_section a,
+.quote_text  {
+  font-family: "Adieu-Light";
+  font-size: 35px;
+  margin-bottom: var(--s4);
+}
+.quote_text {
+  font-style: italic;
+}
+
+/* SELECTED CLIENTS */
+.about_clients_logos {
+  padding-bottom: var(--lg);
+}
+.selected_clients_section img {
+  height: auto;
+  width: 130px !important;
+}
+
+/* ========= TALENT PAGE ========= */
+.why_us_section .area_item{
+  height: 100%;
+}
+
+.why_us_section .area_item,
+.why_us_section .area_item_wrapper:nth-child(3n+1) .area_item,
+.why_us_section .area_item_wrapper:nth-child(-n+3) .area_item  {
+  border-color: var(--color-primary);
+}
+/* Can we not just use -> why_us_section. area_item_wrapper .area_item with !important */
+
+.podcast_items  {
+  border: 0.5px solid var(--color-secondary)
+}
+.podcast_items .area_item_wrapper {
+  width: calc(100% / 3);
+  border: 0.5px solid var(--color-secondary)
+}
+
+
+.podcast_items .hover_card .front_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--f-xs);
 }

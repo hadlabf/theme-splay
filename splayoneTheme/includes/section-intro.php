@@ -1,6 +1,6 @@
 <div>
     <div id="intro_section" class="d-flex flex-row align-items-end">
-        <h1 class="adieu_bold intro_title">Splay One</h1>
+        <h1 class="adieu_black intro_title">Splay One</h1>
         <p class="intro_text"><?php echo the_field('home_intro_elevator_pitch'); ?></p>
     </div>
     <?php 

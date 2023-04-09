@@ -4,7 +4,7 @@
         <h1 class="adieu_bold sp_header"><?php echo the_field('home_award_header'); ?></h1>
         <p class="sp_text"><?php echo the_field('home_award_text'); ?></p>
         <div class="d-flex justify-content-center">
-            <a class="primary_button"><?php echo the_field('home_award_button'); ?></a>
+            <a href="<?php echo site_url('/about');?>" class="primary_button"><?php echo the_field('home_award_button'); ?></a>
         </div>
         <?php 
             $images = get_field('home_award_gallery');
