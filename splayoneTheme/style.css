@@ -66,7 +66,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   flex-direction: row;
   overflow-x: scroll;
   width: 1530px;
-  /* width: calc((100vw -1340px) / 2 + 1300px); */
   gap: var(--s3);
   padding-bottom: var(--s3);
 }
@@ -86,10 +85,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 /* ========================================*/
 /* =========== PAGE: OUR PEOPLE ===========*/
-
-.people_title {
-  font-size: var(--f-h1);
-}
 .people_cards {
   padding: var(--s6) 0;
   display: flex;
@@ -342,3 +337,73 @@ button.submit_button {
   justify-content: center;
   font-size: var(--f-xs);
 }
+
+/********** PAGE CASE/WORK ARCHIVE **********/
+.case_single_image_wrapper {
+  width: 100%;
+  max-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case_single_page {
+  border-bottom: 1px solid var(--color-primary);
+}
+.case_single_page .service_tag {
+  padding-right: var(--s2);
+}
+.case_single_page .service_tag:after {
+  content: "|";
+  padding-left: var(--s2);
+
+}
+.case_single_page .service_tag:last-child:after {
+  content: "";
+}
+.case_archive  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.case_archive .case_item {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-bottom: var(--lg);
+}
+.case_archive .case_item:nth-child(odd) {
+  padding-right: var(--s3);
+}
+.case_archive .case_item:nth-child(even) {
+  padding-left: var(--s3);
+}
+.kpi_1, .kpi_2 {
+  margin-top: -12px;
+  font-family: "Adieu-Light";
+}
+.kpi_1 {
+  font-size: 180px;
+}
+.kpi_2 {
+  font-size: 110px;
+}
+/********** PAGE NEWS ARTICLES ARCHIVE **********/
+.news_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.news_list .news_article_item {
+  padding: var(--s4);
+  height: 360px;
+  border: 1px solid var(--color-primary); 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+
+

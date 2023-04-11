@@ -52,10 +52,20 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }
+a, a:hover, a:focus, a:active  {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 .content {
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto;
+}
+@media (max-width: 1424px) {
+  .content {
+    padding: 0 var(--s4);
+  }
 }
 
 .page_container {
@@ -78,6 +88,9 @@
 .text_2 {
   font-size: 22px;
 }
+.bold_1 {
+  font-weight: 500;
+}
 .subtitle_1 {
   font-size: var(--f-h4);
   font-weight: 500;
@@ -89,6 +102,10 @@
 .large_title {
   font-size: 80px !important;
   font-family: "Adieu-Light";
+}
+.page_title {
+  font-size: var(--f-h1);
+  font-family: "Adieu-Bold";
 }
 .title_1 {
   font-size: 50px;
@@ -227,13 +244,13 @@ color: var(--bg-accent2);
   width: auto;
 }
 /* ======== FOOTER ======== */
-.about_page_footer {
+.footer_style_secondary {
   background-color: var(--bg-secondary);
 }
 .contact_page_footer {
   background-color: var(--bg-accent1);
 }
-.about_page_footer, .contact_page_footer * {
+.footer_style_secondary, .contact_page_footer * {
   color: var(--color-secondary);
   border-top-color: var(--color-secondary);
 }

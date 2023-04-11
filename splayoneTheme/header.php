@@ -27,7 +27,8 @@
                 <div class="menu_icon_wrapper">
                     <img class="menu_icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/menu-icon-<?php echo $color;?>.png"/>
                 </div>
-                <a href="<?php echo site_url('/contact');?>">Work</a>
+                <a href="<?php echo site_url('/cases');?>">Work</a>
+                <a href="<?php echo site_url('/news-articles');?>">News</a>
                 <a href="<?php echo site_url('/talent');?>">Talent</a>
                 <a href="<?php echo site_url('/our-people');?>">People</a>
                 <a href="<?php echo site_url('/about');?>">About us</a>
