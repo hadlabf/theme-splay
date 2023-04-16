@@ -91,6 +91,9 @@ a, a:hover, a:focus, a:active  {
 .bold_1 {
   font-weight: 500;
 }
+.bold_2 {
+  font-weight: 600;
+}
 .subtitle_1 {
   font-size: var(--f-h4);
   font-weight: 500;
@@ -315,7 +318,17 @@ color: var(--color-secondary);
 padding-top: var(--s6);
 padding-bottom: var(--xl);
 }
+
 .section_padding_3 {
 padding-top: var(--lg);
 padding-bottom: var(--lg);
+}
+/* WIDTHS */
+.w_70 {
+max-width: 70%
+}
+@media (max-width: 1024px) {
+.w_70 {
+  max-width: 100%
+}
 }

@@ -1,5 +1,77 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(get_template_directory());
+$dotenv->load();
+$s3_bucket = $_ENV['SPLAY_ONE_YOUTUBE_API_KEY'];
+
+function get_channel_stats($api_key, $channel_id) {
+	$api_url = 'https://www.googleapis.com/youtube/v3/search?part=id&channelId=' . $channel_id . '&type=video&key=' . $api_key;
+	$response = wp_remote_get($api_url);
+
+	if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+		$body = wp_remote_retrieve_body($response);
+		$api_data = json_decode($body, true);
+
+		$total_likes = 0;
+		$total_views = 0;
+		$total_time = 0;
+        
+		foreach ($api_data['items'] as $item) {
+			$video_id = $item['id']['videoId'];
+			$stats_url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=' . $video_id . '&key=' . $api_key;
+			$stats_response = wp_remote_get($stats_url);
+			if (!is_wp_error($stats_response) && wp_remote_retrieve_response_code($stats_response) === 200) {
+				$stats_body = wp_remote_retrieve_body($stats_response);
+				$stats_data = json_decode($stats_body, true);
+
+				// Add likes count to total likes
+				$total_likes += intval($stats_data['items'][0]['statistics']['likeCount']);
+				$total_views += intval($stats_data['items'][0]['statistics']['viewCount']);
+
+				// Get video duration in seconds
+				$duration = $stats_data['items'][0]['contentDetails']['duration'];
+				$duration_seconds = get_duration_seconds($duration);
+				$total_time += $duration_seconds * $total_views;
+                
+			}
+
+		}
+        $total_time_hours = floor($total_time / 3600);
+		return array(
+			'total_likes' => $total_likes,
+			'total_views' => $total_views,
+			'total_time_hours' => $total_time_hours,
+		);
+	}
+
+	return array(
+		'total_likes' => 0,
+		'total_views' => 0,
+		'total_time_hours' => 0
+	);
+}
+
+
+function get_duration_seconds($duration) {
+	// Use regular expression to extract the duration in the format "P#DT#H#M#S" or "PT#H#M#S" or "PT#M#S"
+	preg_match('/P(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(\d+)S/', $duration, $matches);
+	
+	if (isset($matches[1]) || isset($matches[2]) || isset($matches[3]) || isset($matches[4])) {
+		$days = isset($matches[1]) ? intval($matches[1]) * 86400 : 0;
+		$hours = isset($matches[2]) ? intval($matches[2]) * 3600 : 0;
+		$minutes = isset($matches[3]) ? intval($matches[3]) * 60 : 0;
+		$seconds = isset($matches[4]) ? intval($matches[4]) : 0;
+		
+		$total_seconds = $days + $hours + $minutes + $seconds;
+		return $total_seconds;
+	}
+
+	return 0; // Return 0 if duration is not in the expected format
+}
+
+
+
 function splay_theme_support() {
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
